@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Le Jardin | Restaurant</title>
+
+    <meta name="description"
+          content="Découvrez Le Jardin, un restaurant aux saveurs généreuses et authentiques.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --vert: #173d2b;
+            --vert-clair: #28563d;
+            --or: #d8a94e;
+            --creme: #fffaf0;
+            --texte: #29352c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--creme);
+            color: var(--texte);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* BARRE DE NAVIGATION */
+
+        header {
+            background: var(--vert);
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: var(--or);
+            font-family: Georgia, serif;
+            font-size: 30px;
+        }
+
+        .logo span {
+            display: block;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--or);
+        }
+
+        .nav-bouton {
+            background: var(--or);
+            color: #18271c;
+            padding: 10px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* GRANDE SECTION D'ACCUEIL */
+
+        .hero {
+            min-height: 480px;
+            padding: 90px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(12, 35, 23, 0.78),
+                    rgba(12, 35, 23, 0.78)
+                ),
+                linear-gradient(135deg, #55745a, #172e20);
+        }
+
+        .hero-contenu {
+            max-width: 760px;
+        }
+
+        .surtitre {
+            color: var(--or);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #f3f0e7;
+            font-size: 17px;
+        }
+
+        .bouton {
+            display: inline-block;
+            padding: 13px 23px;
+            border-radius: 5px;
+            background: var(--or);
+            color: #1d2c20;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .bouton:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .bouton-contour {
+            display: inline-block;
+            padding: 12px 22px;
+            margin-left: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            color: white;
+        }
+
+        /* PETIT BANDEAU */
+
+        .avantages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 25px 7%;
+            background: white;
+            text-align: center;
+            border-bottom: 1px solid #e9e0d0;
+        }
+
+        .avantages strong {
+            color: var(--vert);
+        }
+
+        /* SECTIONS GENERALES */
+
+        section.contenu {
+            padding: 75px 7%;
+        }
+
+        .titre-section {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titre-section h2 {
+            color: var(--vert);
+            font-family: Georgia, serif;
+            font-size: clamp(30px, 4vw, 42px);
+            margin-top: 8px;
+        }
+
+        .titre-section p {
+            max-width: 620px;
+            margin: 10px auto 0;
+            color: #687267;
+        }
+
+        /* PRESENTATION DU RESTAURANT */
+
+        .apropos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .zone-photo-principale {
+            min-height: 320px;
+            border: 2px dashed #b5a989;
+            border-radius: 12px;
+            background: #f0e8d7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            text-align: center;
+            color: #6b705f;
+        }
+
+      .zone-photo-principale img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+   }
+
+        .apropos-texte h2 {
+            color: var(--vert);
+            font-family: Georgia, serif;
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 12px 0 18px;
+        }
+
+        .apropos-texte p {
+            margin-bottom: 16px;
+        }
+
+        /* MENU ET CARTES DES PLATS */
+
+        .section-menu {
+            background: #f1ecdf;
+        }
+
+        .plats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .plat {
+            overflow: hidden;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 6px 20px rgba(30, 45, 30, 0.07);
+            transition: transform 0.3s;
+        }
+
+        .plat:hover {
+            transform: translateY(-5px);
+        }
+
+        .zone-photo-plat {
+            height: 210px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            color: #6b705f;
+            background: #e7dfcd;
+            border-bottom: 2px dashed #b5a989;
+    
+          .zone-photo-plat img {
+    width: 100%;
+    height: 100%;
+    min-height: 210px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+        }
+        }
+
+        .plat-texte {
+            padding: 22px;
+        }
+
+        .plat h3 {
+            color: var(--vert);
+            font-family: Georgia, serif;
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .plat p {
+            color: #687267;
+            font-size: 14px;
+        }
+
+        .prix {
+            display: inline-block;
+            margin-top: 15px;
+            color: #8a641d;
+            font-weight: bold;
+        }
+
+        /* GALERIE PHOTO */
+
+        .galerie {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .zone-galerie {
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            color: #6b705f;
+            background: #eee5d4;
+            border: 2px dashed #b5a989;
+            border-radius: 10px;
+        }
+         
+.photo-galerie {
+    margin: 0;
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(30, 45, 30, 0.10);
+    transition: transform 0.3s ease;
+}
+
+.photo-galerie:hover {
+    transform: translateY(-5px);
+}
+
+.photo-galerie img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.photo-galerie figcaption {
+    padding: 14px;
+    color: #173d2b;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+}
+
+        /* RESERVATION */
+
+        .reservation {
+            padding: 60px 7%;
+            text-align: center;
+            color: white;
+            background: var(--vert);
+        }
+
+        .reservation h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(30px, 4vw, 42px);
+            margin-bottom: 12px;
+        }
+
+        .reservation p {
+            max-width: 620px;
+            margin: 0 auto 25px;
+            color: #e7e9df;
+        }
+
+        /* CONTACT ET PIED DE PAGE */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 8px 0;
+        }
+
+        footer {
+            padding: 25px 7%;
+            text-align: center;
+            color: #e9e9df;
+            background: #102b1d;
+            font-size: 13px;
+        }
+
+        /* ADAPTATION AUX TELEPHONES */
+
+        @media (max-width: 800px) {
+            .apropos {
+                grid-template-columns: 1fr;
+            }
+
+            .plats {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .galerie {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .hero {
+                padding: 65px 6%;
+                min-height: 420px;
+            }
+
+            .bouton-contour {
+                margin: 12px 0 0;
+            }
+             
+.bouton-whatsapp {
+    display: inline-block;
+    padding: 13px 23px;
+    margin: 10px 0 0 10px;
+    border-radius: 5px;
+    background: #25D366;
+    color: #10351e;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.bouton-whatsapp:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+}
+
+            .avantages {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            section.contenu {
+                padding: 55px 6%;
+            }
+
+            .plats,
+            .galerie {
+                grid-template-columns: 1fr;
+            }
+
+            .zone-photo-plat {
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            Le Jardin
+            <span>Restaurant & Saveurs</span>
+        </a>
+
+        <nav aria-label="Navigation principale">
+            <a href="#accueil">Accueil</a>
+            <a href="#apropos">À propos</a>
+            <a href="#menu">Notre menu</a>
+            <a href="#galerie">Galerie</a>
+            <a href="#contact">Contact</a>
+            <a href="#reservation" class="nav-bouton">Nous contacter</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="accueil">
+            <div class="hero-contenu">
+                <span class="surtitre">Bienvenue chez Le Jardin</span>
+
+                <h1>Le plaisir de bien manger</h1>
+
+                <p>
+                    Découvrez des plats généreux, des saveurs authentiques
+                    et un accueil chaleureux pour partager de beaux moments.
+                </p>
+
+                <a href="#menu" class="bouton">Découvrir le menu</a>
+                <a href="#contact" class="bouton-contour">Nous trouver</a>
+            </div>
+        </section>
+
+        <div class="avantages">
+            <div><strong>✦ Cuisine généreuse</strong></div>
+            <div><strong>✦ Saveurs locales</strong></div>
+            <div><strong>✦ Accueil chaleureux</strong></div>
+        </div>
+
+        <section class="contenu apropos" id="apropos">
+          
+          <div class="zone-photo-principale">
+    <img
+        src="image/IMG_003.jpg"
+        alt="Assortiment de plats aux saveurs haïtiennes"
+    >
+          </div>
+            <div class="apropos-texte">
+                <span class="surtitre">Notre histoire</span>
+
+                <h2>Un endroit où les saveurs se rencontrent</h2>
+
+                <p>
+                    Bienvenue au Jardin, un restaurant imaginé pour
+                    apprécier une cuisine savoureuse dans une ambiance
+                    conviviale.
+                </p>
+
+                <p>
+                    Notre objectif : proposer une expérience agréable,
+                    des plats préparés avec soin et un service attentionné.
+                </p>
+
+                <a href="#menu" class="bouton">Explorer nos spécialités</a>
+            </div>
+
+        </section>
+
+        <section class="contenu section-menu" id="menu">
+
+            <div class="titre-section">
+                <span class="surtitre">Une cuisine savoureuse</span>
+                <h2>Nos spécialités</h2>
+                <p>
+                    Voici quelques exemples de plats que nous pourrons
+                    présenter sur le site.
+                </p>
+            </div>
+
+            <div class="plats">
+
+                <article class="plat">
+                    <div class="zone-photo-plat">
+    <img
+        src="image/IMG_poulet.jpg"
+        alt="Poulet grillé accompagné de garnitures"
+    >
+                    </div>
+                    <div class="plat-texte">
+                        <h3>Poulet grillé</h3>
+                        <p>
+                            Poulet savoureux accompagné de garnitures
+                            et d'assaisonnements parfumés.
+                        </p>
+                        <span class="prix">Prix à ajouter</span>
+                    </div>
+                </article>
+
+                <article class="plat">
+                    <div class="zone-photo-plat">
+    <img
+        src="image/IMG_poisson2.jpg"
+        alt="Poisson préparé avec des accompagnements"
+    >
+                    </div>
+
+                    <div class="plat-texte">
+                        <h3>Poisson du jour</h3>
+                        <p>
+                            Poisson préparé avec soin, inspiré des
+                            saveurs locales.
+                        </p>
+                        <span class="prix">Prix à ajouter</span>
+                    </div>
+                </article>
+
+                <article class="plat">
+                    <div class="zone-photo-plat">
+    <img
+        src="image/IMG_legume.jpg"
+        alt="Assiette traditionnelle avec riz et accompagnements"
+    >
+                    </div>
+
+                    <div class="plat-texte">
+                        <h3>Assiette traditionnelle</h3>
+                        <p>
+                            Une assiette généreuse avec riz,
+                            accompagnements et sauce.
+                        </p>
+                        <span class="prix">Prix à ajouter</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="contenu" id="galerie">
+
+            <div class="titre-section">
+                <span class="surtitre">Un aperçu du Jardin</span>
+                <h2>Notre galerie</h2>
+                <p>
+                    Nous pourrons afficher ici tes propres photos
+                    de plats, de boissons et du restaurant.
+                </p>
+            </div>
+
+            
+<div class="galerie">
+
+    <figure class="photo-galerie">
+        <img src="image/IMG_001.jpg"
+             alt="Assortiment de plats haïtiens">
+        <figcaption>Nos saveurs locales</figcaption>
+    </figure>
+
+    <figure class="photo-galerie">
+        <img src="image/poulet2.jpg"
+             alt="Poulet grillé accompagné de garnitures">
+        <figcaption>Notre poulet grillé</figcaption>
+    </figure>
+
+    <figure class="photo-galerie">
+        <img src="image/IMG_poisson2.jpg"
+             alt="Poisson préparé avec des accompagnements">
+        <figcaption>Notre poisson du jour</figcaption>
+    </figure>
+
+    <div class="zone-galerie">Photo 4 à ajouter</div>
+    <div class="zone-galerie">Photo 5 à ajouter</div>
+    <div class="zone-galerie">Photo 6 à ajouter</div>
+
+</div>
+
+
+        </section>
+
+        <section class="reservation" id="reservation">
+            <h2>Une envie de bien manger ?</h2>
+
+            <p>
+                Contactez-nous pour obtenir des informations
+                sur le menu, les horaires ou les réservations.
+            </p>
+
+            
+<a href="#contact" class="bouton">
+    Voir nos coordonnées
+</a>
+
+<a
+    href="https://wa.me/50942053681"
+    class="bouton-whatsapp"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Contacter sur WhatsApp
+</a>
+
+        </section>
+
+        <section class="contenu contact" id="contact">
+
+            <div class="titre-section">
+                <span class="surtitre">Restons en contact</span>
+                <h2>Nous trouver</h2>
+                <p>
+                    Les informations ci-dessous sont des espaces
+                    réservés aux coordonnées réelles du restaurant.
+                </p>
+            </div>
+
+            <p><strong>Adresse :</strong> à compléter</p>
+            <p><strong>Téléphone :</strong> à compléter</p>
+            <p><strong>Horaires :</strong> à compléter</p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Le Jardin — Site de démonstration créé pour le portfolio.</p>
+        <p>© <span id="annee"></span> Le Jardin. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.getElementById("annee").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
+
